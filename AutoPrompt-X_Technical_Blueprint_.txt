@@ -1,0 +1,1051 @@
+================================================================================
+                 TECHNICAL BLUEPRINT & PROJECT DOCUMENTATION
+================================================================================
+                        AutoPrompt-X v1.0.0
+              AI Interaction Automator - Conversational DevOps
+================================================================================
+
+প্রস্তুতকারী: raw-fun (User) / Documentation Team
+ডকুমেন্টেশন সহায়তা:  Gemini AI
+সর্বশেষ হালনাগাদ: ২০২৬-০১-০৯
+প্রজেক্ট স্ট্যাটাস:  Concept & Planning Phase
+শ্রেণীবিন্যাস: Open Development - AI Automation Tool
+
+================================================================================
+                            সূচিপত্র (TABLE OF CONTENTS)
+================================================================================
+
+১. নির্বাহী সারসংক্ষেপ (Executive Summary)
+২. প্রজেক্টের দৃষ্টিভঙ্গি ও উদ্দেশ্য (Vision & Objectives)
+৩. সমস্যা বিবৃতি (Problem Statement)
+৪. প্রস্তাবিত সমাধান (Proposed Solution)
+৫. সিস্টেম আর্কিটেকচার (System Architecture)
+৬. কারিগরি স্ট্যাক ও প্রযুক্তি (Technology Stack)
+৭. বাস্তবায়ন পরিকল্পনা (Implementation Plan)
+৮. অটোমেশন ওয়ার্কফ্লো (Automation Workflow)
+৯. নিরাপত্তা ও সম্মতি (Security & Compliance)
+১০. ঝুঁকি ব্যবস্থাপনা (Risk Management)
+১১. পরীক্ষণ কৌশল (Testing Strategy)
+১২. ভবিষ্যৎ রোডম্যাপ (Future Roadmap)
+১৩. সম্পদ প্রয়োজনীয়তা (Resource Requirements)
+১৪. সাফল্যের মাপকাঠি (Success Metrics)
+
+================================================================================
+১.  নির্বাহী সারসংক্ষেপ (EXECUTIVE SUMMARY)
+================================================================================
+
+প্রজেক্ট নাম: AutoPrompt-X (AI Interaction Automator)
+ট্যাগলাইন: "Codeless AI Automation - Speak Your Intent, Automate Your Work"
+
+AutoPrompt-X হলো একটি বিপ্লবী Conversational DevOps সিস্টেম যা PowerShell 
+স্ক্রিপ্টিং এবং Gemini AI-এর সমন্বয়ে তৈরি। এটি ব্যবহারকারীদের সাধারণ ভাষায় 
+(বাংলা/ইংরেজি) নির্দেশ দেওয়ার মাধ্যমে জটিল AI অটোমেশন কাজ সম্পাদন করতে সক্ষম।
+
+মূল উদ্ভাবন: 
+- Natural Language to Automation Logic Conversion
+- Zero Coding Required - শুধু বলুন কী চান
+- Intelligent Loop Management with Anti-Ban Strategy
+- Universal AI Platform Support (DeepSeek, ChatGPT, Claude, Gemini)
+- Automatic Data Collection & Storage
+
+প্রধান সমস্যা সমাধান: 
+✓ হাজার বার একই প্রম্পট টাইপ করার যন্ত্রণা থেকে মুক্তি
+✓ ঘণ্টার পর ঘণ্টা মনিটরের সামনে বসে থাকার প্রয়োজন নেই
+✓ বড় ডেটাসেট জেনারেশন এখন সম্পূর্ণ স্বয়ংক্রিয়
+✓ উৎপাদনশীলতা বৃদ্ধি ৫০০%+
+
+মূল প্রয়োগক্ষেত্র: 
+✓ বড় আকারের AI কন্টেন্ট জেনারেশন (১০০০+ আইডিয়া, আর্টিকেল, কোড)
+✓ রিসার্চ ডেটা সংগ্রহ ও বিশ্লেষণ
+✓ প্রম্পট চেইনিং ও মাল্টি-স্টেপ AI ওয়ার্কফ্লো
+✓ A/B টেস্টিং ও প্রম্পট ইঞ্জিনিয়ারিং
+
+================================================================================
+২. প্রজেক্টের দৃষ্টিভঙ্গি ও উদ্দেশ্য (VISION & OBJECTIVES)
+================================================================================
+
+২. ১ দৃষ্টিভঙ্গি (Vision)
+--------------------------
+"একটি এমন বুদ্ধিমান অটোমেশন সিস্টেম তৈরি করা যেখানে ব্যবহারকারী শুধুমাত্র 
+সাধারণ ভাষায় তার উদ্দেশ্য বলবেন এবং AI স্বয়ংক্রিয়ভাবে সেই কাজ সম্পন্ন 
+করে দেবে—কোনো প্রোগ্রামিং বা কারিগরি জ্ঞান ছাড়াই।"
+
+২.২ মূল উদ্দেশ্য (Primary Objectives)
+---------------------------------------
+[OBJ-001] ন্যাচারাল ল্যাঙ্গুয়েজ টু অটোমেশন
+          → ইউজারের বাংলা/ইংরেজি কমান্ডকে সরাসরি এক্সিকিউটেবল কোডে রূপান্তর
+          → কোনো প্রোগ্রামিং জ্ঞানের প্রয়োজন নেই
+
+[OBJ-002] ইন্টেলিজেন্ট অটোমেশন ইঞ্জিন
+          → Gemini AI ব্যবহার করে স্মার্ট প্ল্যানিং ও এক্সিকিউশন
+          → Dynamic parameter extraction (count, delay, content)
+
+[OBJ-003] মাল্টি-প্ল্যাটফর্ম AI সাপোর্ট
+          → DeepSeek, ChatGPT, Claude, Gemini সব প্ল্যাটফর্মে কাজ করবে
+          → Unified interface ব্যবহার করে বিভিন্ন AI-এ একই কমান্ড
+
+[OBJ-004] রেট-লিমিট অ্যাওয়্যার অটোমেশন
+          → বুদ্ধিমত্তার সাথে delay manage করে ban এড়ানো
+          → Adaptive timing based on platform response
+
+[OBJ-005] স্বয়ংক্রিয় ডেটা ম্যানেজমেন্ট
+          → প্রতিটি রেসপন্স স্বয়ংক্রিয়ভাবে সংরক্ষণ
+          → Structured output (TXT, CSV, JSON) সাপোর্ট
+
+================================================================================
+৩. সমস্যা বিবৃতি (PROBLEM STATEMENT)
+================================================================================
+
+৩.১ বর্তমান চ্যালেঞ্জসমূহ
+---------------------------
+[P-001] পুনরাবৃত্তিমূলক ম্যানুয়াল কাজ
+        → AI থেকে বড় ডেটাসেট সংগ্রহে হাজার বার একই প্রম্পট টাইপ করতে হয়
+        → উদাহরণ: ৫০০০ আইডিয়া জেনারেট করতে ৫০০০ বার "NEXT" লিখতে হয়
+        → সময় ব্যয়:  প্রতি সেশনে ৪-৮ ঘণ্টা নিরবচ্ছিন্ন কাজ
+
+[P-002] মনিটরিং এর বোঝা
+        → পুরো প্রসেস চলাকালীন সময় কম্পিউটারের সামনে বসে থাকতে হয়
+        → যদি ইন্টারনেট বিচ্ছিন্ন হয় বা সেশন expire হয় তাহলে সব ডেটা হারিয়ে যায়
+        → Multitasking করার সুযোগ নেই
+
+[P-003] কোডিং ব্যারিয়ার
+        → বর্তমান অটোমেশন টুলগুলো ব্যবহার করতে programming দক্ষতা লাগে
+        → সাধারণ ব্যবহারকারী complex script লিখতে পারেন না
+        → প্রতিটি নতুন কাজের জন্য নতুন করে কোড লিখতে হয়
+
+[P-004] প্ল্যাটফর্ম নির্ভরতা
+        → একটি AI প্ল্যাটফর্মের জন্য লেখা স্ক্রিপ্ট অন্যটিতে কাজ করে না
+        → প্রতিটি প্ল্যাটফর্মের জন্য আলাদা টুল দরকার হয়
+
+[P-005] ডেটা সংগ্রহে অনিশ্চয়তা
+        → Response manually copy-paste করতে গিয়ে ভুল হয়
+        → ডেটা সংগঠিত ও সংরক্ষণে অনেক সময় নষ্ট হয়
+        → Data loss এর ঝুঁকি থাকে
+
+৩.২ প্রভাব বিশ্লেষণ
+--------------------
+- উৎপাদনশীলতা হ্রাস: ৭০-৮০% সময় শুধু repetitive কাজে নষ্ট
+- মানসিক চাপ: একঘেয়ে কাজে মনোযোগ ও motivation কমে যায়
+- সুযোগ ব্যয়: যে সময়ে সৃজনশীল কাজ করা যেত তা নষ্ট হয়
+- স্কেলেবিলিটি সীমা: বড় প্রজেক্টে manual process অব্যবহারিক
+
+================================================================================
+৪.  প্রস্তাবিত সমাধান (PROPOSED SOLUTION)
+================================================================================
+
+৪.১ সলিউশন ওভারভিউ
+---------------------
+AutoPrompt-X একটি দ্বি-স্তরীয় বুদ্ধিমান সমাধান প্রদান করে: 
+
+[স্তর ১] Natural Language Interface Layer
+         → PowerShell-based Interactive Terminal
+         → Bangla/English Command Recognition
+         → User Intent Extraction Engine
+
+[স্তর ২] AI-Powered Automation Planning Layer
+         → Gemini AI Integration for Command Parsing
+         → Intelligent Parameter Extraction
+         → Executable Script Generation
+         → Multi-Platform Automation Engine
+
+কাজের প্রবাহ (Simplified):
+ইউজার বলে → Gemini বুঝে → PowerShell করে → AI রেসপন্স আসে → সংরক্ষণ হয়
+
+৪.২ মূল পার্থক্যকারী বৈশিষ্ট্য (Differentiators)
+--------------------------------------------------
+✓ Codeless Operation - শুধু সাধারণ ভাষায় বলুন
+✓ AI-Driven Planning - Gemini স্বয়ংক্রিয় পরিকল্পনা তৈরি করে
+✓ Universal Platform Support - সব AI-এ একই টুল
+✓ Smart Delay Management - Ban/Rate-limit এড়াতে intelligent timing
+✓ Auto Data Collection - সব রেসপন্স স্বয়ংক্রিয়ভাবে সেভ
+✓ Resumable Sessions - ইন্টারাপশনের পর পুনরায় শুরু
+✓ Zero Installation - শুধু . ps1 ফাইল রান করুন
+
+================================================================================
+৫. সিস্টেম আর্কিটেকচার (SYSTEM ARCHITECTURE)
+================================================================================
+
+৫.১ প্রজেক্ট স্ট্রাকচার (Project Structure)
+--------------------------------------------
+
+AutoPrompt-X/                           [রুট ডিরেক্টরি]
+│
+├── Core/                               [মূল ইঞ্জিন]
+│   ├── AutoPrompt-X. ps1                [মাস্টার স্ক্রিপ্ট - মেইন এন্ট্রি]
+│   ├── NLPProcessor.ps1                [Natural Language Processor]
+│   ├── GeminiIntegration.ps1           [Gemini AI সংযোগ মডিউল]
+│   └── ExecutionEngine.ps1             [কমান্ড এক্সিকিউশন ইঞ্জিন]
+│
+├── Platforms/                          [AI প্ল্যাটফর্ম মডিউল]
+│   ├── DeepSeek-Module.ps1             [DeepSeek অটোমেটর]
+│   ├── ChatGPT-Module.ps1              [ChatGPT অটোমেটর]
+│   ├── Claude-Module.ps1               [Claude অটোমেটর]
+│   └── Gemini-Module.ps1               [Gemini অটোমেটর]
+│
+├── Utils/                              [সহায়ক ফাংশন]
+│   ├── Logger.ps1                      [লগিং সিস্টেম]
+│   ├── DataStorage.ps1                 [ডেটা সংরক্ষণ]
+│   ├── DelayManager.ps1                [স্মার্ট ডিলে ম্যানেজার]
+│   ├── SessionManager.ps1              [সেশন ব্যবস্থাপনা]
+│   └── ErrorHandler.ps1                [এরর হ্যান্ডলিং]
+│
+├── Config/                             [কনফিগারেশন]
+│   ├── settings. json                   [গ্লোবাল সেটিংস]
+│   ├── platforms.json                  [প্ল্যাটফর্ম কনফিগ]
+│   ├── prompts-template.json           [প্রম্পট টেমপ্লেট]
+│   └── api-keys.json                   [API কী (এনক্রিপ্টেড)]
+│
+├── Data/                               [ডেটা স্টোরেজ]
+│   ├── Sessions/                       [সেশন ডেটা]
+│   ├── Outputs/                        [AI রেসপন্স আউটপুট]
+│   │   ├── DeepSeek/
+│   │   ├── ChatGPT/
+│   │   └── Claude/
+│   └── Logs/                           [সিস্টেম লগ]
+│
+├── Docs/                               [ডকুমেন্টেশন]
+│   ├── USER-GUIDE-BN.md                [বাংলা ব্যবহারকারী গাইড]
+│   ├── USER-GUIDE-EN.md                [ইংরেজি গাইড]
+│   └── EXAMPLES.md                     [উদাহরণ]
+│
+├── Start-AutoPromptX.bat               [উইন্ডোজ লঞ্চার]
+├── README.md                           [প্রজেক্ট পরিচিতি]
+└── LICENSE. txt                         [লাইসেন্স]
+
+৫.২ সিস্টেম আর্কিটেকচার ডায়াগ্রাম
+------------------------------------
+
+┌─────────────────────────────────────────────────────────────────┐
+│                      USER INTERFACE LAYER                       │
+│             (PowerShell Terminal - Interactive Prompt)          │
+│           "৫০০ বার NEXT লেখো ১ মিনিট ৪০ সেকেন্ড পর পর"        │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│               NATURAL LANGUAGE PROCESSING LAYER                 │
+│                    (NLPProcessor.ps1)                           │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │ Input: "৫০০ বার NEXT লেখো ১ মিনিট ৪০ সেকেন্ড পর পর"   │  │
+│  │ Output:  Structured Intent Object                         │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  GEMINI AI INTEGRATION LAYER                    │
+│                   (GeminiIntegration.ps1)                       │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │ • User Intent → Gemini API                               │  │
+│  │ • Response:  Executable JSON Plan                         │  │
+│  │   {                                                      │  │
+│  │     "action": "send_message",                            │  │
+│  │     "content": "NEXT",                                   │  │
+│  │     "iterations": 500,                                   │  │
+│  │     "delay_seconds": 100                                 │  │
+│  │   }                                                      │  │
+│  └──────────────────────────────────────────────────────────┘  │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  EXECUTION PLANNING LAYER                       │
+│                   (ExecutionEngine.ps1)                         │
+│  ┌──────────────┬─────────────────┬────────────────────────┐   │
+│  │ Loop Builder │ Delay Scheduler │ Platform Selector      │   │
+│  └──────────────┴─────────────────┴────────────────────────┘   │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              PLATFORM-SPECIFIC AUTOMATION LAYER                 │
+│         (DeepSeek/ChatGPT/Claude/Gemini Modules)                │
+│  ┌──────────────┬─────────────────┬────────────────────────┐   │
+│  │ DOM Navigator│ Message Sender  │ Response Collector     │   │
+│  └──────────────┴─────────────────┴────────────────────────┘   │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  DATA MANAGEMENT LAYER                          │
+│              (DataStorage.ps1 + SessionManager.ps1)             │
+│  ┌──────────────┬─────────────────┬────────────────────────┐   │
+│  │ Auto-Save    │ Format Convert  │ Session Persistence    │   │
+│  │ (TXT/CSV)    │ (JSON/MD)       │ (Resume Support)       │   │
+│  └──────────────┴─────────────────┴────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+
+৫.৩ ডেটা ফ্লো বিস্তারিত
+--------------------------
+
+[USER INPUT]
+   "৫০০ বার NEXT লেখো ১ মিনিট ৪০ সেকেন্ড পর পর DeepSeek-এ"
+   │
+   ├─→ [NLP Processor] 
+   │   ├─ ভাষা শনাক্তকরণ (বাংলা)
+   │   ├─ সংখ্যা নিষ্কাশন:  500, 100 seconds
+   │   ├─ ক্রিয়া শনাক্তকরণ:  "লেখো" → send_message
+   │   ├─ কন্টেন্ট:  "NEXT"
+   │   └─ টার্গেট:  "DeepSeek"
+   │
+   ├─→ [Gemini AI Processing]
+   │   ├─ Intent Validation
+   │   ├─ Parameter Extraction & Structuring
+   │   ├─ Safety Check (Rate Limit Analysis)
+   │   └─ JSON Plan Generation: 
+   │       {
+   │         "platform": "DeepSeek",
+   │         "action": "send_message",
+   │         "message_content": "NEXT",
+   │         "total_iterations": 500,
+   │         "delay_between_messages": 100,
+   │         "save_responses": true,
+   │         "output_format": "txt"
+   │       }
+   │
+   ├─→ [Execution Engine]
+   │   ├─ Load DeepSeek Module
+   │   ├─ Initialize Browser/API Connection
+   │   ├─ Verify Session (Login Check)
+   │   └─ Start Automation Loop
+   │
+   ├─→ [Automation Loop] (i = 1 to 500)
+   │   │
+   │   ├─→ [Send Message]
+   │   │   └─ Platform Module → Send "NEXT"
+   │   │
+   │   ├─→ [Wait for Response]
+   │   │   └─ Smart Wait until AI completes
+   │   │
+   │   ├─→ [Capture Response]
+   │   │   └─ Extract & Store Response Text
+   │   │
+   │   ├─→ [Save to File]
+   │   │   └─ Data/Outputs/DeepSeek/response-{i}.txt
+   │   │
+   │   ├─→ [Delay]
+   │   │   └─ Sleep 100 seconds (with progress indicator)
+   │   │
+   │   └─→ [Check Continuation]
+   │       ├─ If i < 500 → Continue Loop
+   │       └─ If i = 500 → Complete
+   │
+   └─→ [Completion]
+       ├─ Generate Summary Report
+       ├─ Save Session State
+       ├─ Show Success Notification
+       └─ Exit
+
+================================================================================
+৬. কারিগরি স্ট্যাক ও প্রযুক্তি (TECHNOLOGY STACK)
+================================================================================
+
+৬.১ কোর টেকনোলজি
+-------------------
+
+┌─────────────────────┬──────────────────┬────────────────────────┐
+│ Component           │ Technology       │ Version / Details      │
+├─────────────────────┼──────────────────┼────────────────────────┤
+│ Scripting Language  │ PowerShell       │ 5.1+ / Core 7.x        │
+│ AI Engine           │ Gemini API       │ 1.5 Pro / Flash        │
+│ Browser Automation  │ Selenium         │ WebDriver 4.x          │
+│ Alternative Method  │ Playwright       │ . NET Binding (Optional)│
+│ Data Format         │ JSON             │ UTF-8 Encoding         │
+│ Storage Format      │ TXT/CSV/JSON/MD  │ User Configurable      │
+│ Logging             │ Plain Text       │ Timestamp-based        │
+│ Configuration       │ JSON Files       │ Hierarchical Structure │
+│ Encryption          │ AES-256          │ For API Keys           │
+└─────────────────────┴──────────────────┴────────────────────────┘
+
+৬.২ Gemini AI Integration Architecture
+---------------------------------------
+
+Gemini API ব্যবহারের দুটি পদ্ধতি: 
+
+পদ্ধতি ১: REST API (Recommended)
+--------------------------------
+PowerShell থেকে সরাসরি HTTP Request: 
+
+Invoke-RestMethod -Uri "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent" `
+    -Method POST `
+    -Headers @{"x-goog-api-key" = $apiKey} `
+    -Body $jsonPayload
+
+সুবিধা: 
+✓ দ্রুত ও lightweight
+✓ কোনো browser dependency নেই
+✓ Headless operation সম্ভব
+✓ API rate limit সরাসরি handle করা যায়
+
+পদ্ধতি ২: Browser Automation (Fallback)
+----------------------------------------
+যদি API key না থাকে বা web interface ব্���বহার করতে হয়: 
+- Selenium/Playwright দিয়ে gemini. google.com এ automation
+- Session persistence সহ
+- Browser-based interaction
+
+৬.৩ Natural Language Processing Strategy
+------------------------------------------
+
+Gemini-কে দেওয়া System Prompt:
+"""
+You are an automation command parser.  Convert user's natural language 
+instructions (in Bangla or English) into structured JSON format.
+
+User may say things like:
+- "৫০০ বার NEXT লেখো ১ মিনিট পর পর"
+- "Send 'continue' 100 times with 2 minute delay"
+
+Extract these parameters:
+1. action: what to do (send_message, click_button, etc.)
+2. content: what text/message to send
+3. iterations: how many times to repeat
+4. delay_seconds: wait time between iterations
+5. platform: which AI platform (DeepSeek, ChatGPT, etc.)
+
+Output ONLY valid JSON, no explanation. 
+"""
+
+উদাহরণ Input-Output: 
+
+Input: "১০০ বার continue লিখো ২ মিনিট পর পর ChatGPT-এ"
+
+Gemini Output: 
+{
+  "action": "send_message",
+  "content":  "continue",
+  "iterations": 100,
+  "delay_seconds":  120,
+  "platform": "ChatGPT",
+  "save_responses": true
+}
+
+৬.৪ Platform Module Architecture
+---------------------------------
+
+প্রতিটি AI প্ল্যাটফর্মের জন্য একটি স্বতন্ত্র module: 
+
+DeepSeek-Module. ps1 Structure:
+├─ Initialize-DeepSeekSession()
+├─ Find-DeepSeekInputBox()
+├─ Send-DeepSeekMessage($content)
+├─ Get-DeepSeekResponse()
+├─ Wait-ForDeepSeekResponse()
+└─ Close-DeepSeekSession()
+
+একই Interface সব module-এ থাকায় সহজেই switch করা যায়।
+
+================================================================================
+৭. বাস্তবায়ন পরিকল্পনা (IMPLEMENTATION PLAN)
+================================================================================
+
+৭.১ ডেভেলপমেন্ট ফেজ (Development Phases)
+------------------------------------------
+
+【ফেজ ০:  প্রারম্ভিক গবেষণা ও প্রস্তুতি】(সপ্তাহ ১)
+──────────────────────────────────────────────
+□ Gemini API Documentation পর্যালোচনা
+□ PowerShell + Gemini Integration PoC (Proof of Concept)
+□ Natural Language Command Parsing টেস্ট
+□ বিভিন্ন AI প্ল্যাটফর্মের UI/API স্ট্রাকচার বিশ্লেষণ
+□ প্রজেক্ট স্ট্রাকচার ফাইনালাইজ
+
+Deliverables: 
+✓ Working Gemini API connection from PowerShell
+✓ Sample NLP command parsing
+✓ Platform comparison document
+
+
+【ফেজ ১: কোর ইঞ্জিন ডেভেলপমেন্ট】(সপ্তাহ ২-৩)
+────────────────────────────────────────────
+□ AutoPrompt-X.ps1 মূল স্ক্রিপ্ট তৈরি
+□ NLPProcessor.ps1 - Natural Language Parser
+  → Bangla/English text recognition
+  → Number extraction (বাংলা সংখ্যা সহ)
+  → Intent classification
+□ GeminiIntegration. ps1 - API Integration
+  → REST API wrapper functions
+  → Error handling & retry logic
+  → Response parsing
+□ ExecutionEngine. ps1 - Command Executor
+  → JSON plan parser
+  → Loop builder
+  → Platform router
+
+Key Functions:
+→ Parse-UserCommand($text)
+→ Send-ToGemini($userIntent)
+→ Build-ExecutionPlan($geminiResponse)
+→ Execute-AutomationPlan($plan)
+
+
+【ফেজ ২: Platform Module Development】(সপ্তাহ ৪-৫)
+──────────────────────────────────────────────────
+□ DeepSeek-Module.ps1 সম্পূর্ণ বাস্তবায়ন
+  → Browser automation setup
+  → Message sending logic
+  → Response capture mechanism
+□ ChatGPT-Module. ps1 (প্রাথমিক)
+□ Claude-Module.ps1 (প্রাথমিক)
+□ Gemini-Module.ps1 (API-based)
+□ Universal Platform Interface তৈরি
+
+Testing: 
+✓ প্রতিটি module আলাদাভাবে test
+✓ 10-20 iterations stress test
+✓ Response accuracy যাচাই
+
+
+【ফেজ ৩: Utility Modules】(সপ্তাহ ৬)
+──────────────────────────────────────
+□ Logger.ps1 - Comprehensive logging
+  → Multi-level logging (DEBUG, INFO, WARN, ERROR)
+  → Color-coded terminal output
+  → File logging with rotation
+□ DataStorage.ps1 - Data management
+  → Multiple format support (TXT, CSV, JSON, MD)
+  → Auto-organization by date/platform
+  → Compression for large datasets
+□ DelayManager.ps1 - Smart delay system
+  → Configurable delay patterns
+  → Random variation to appear human-like
+  → Progress indicator during delay
+□ SessionManager.ps1 - Session handling
+  → Save session state
+  → Resume interrupted sessions
+  → Session history tracking
+□ ErrorHandler.ps1 - Error management
+  → Graceful error recovery
+  → User-friendly error messages
+  → Automatic retry logic
+
+
+【ফেজ ৪: Configuration System】(সপ্তাহ ৭)
+─────────────────────────────────────────
+□ settings.json structure design
+  {
+    "default_platform": "DeepSeek",
+    "default_delay": 100,
+    "auto_save": true,
+    "output_format": "txt",
+    "language": "bn"
+  }
+□ platforms.json - প্ল্যাটফর্ম সেটিংস
+□ api-keys.json - Encrypted key storage
+□ prompts-template.json - Reusable templates
+□ Configuration validation ও hot-reload
+
+
+【ফেজ ৫: User Interface Enhancement】(সপ্তাহ ৮)
+──────────────────────────────────────────────
+□ Interactive Terminal Interface
+  → Welcome screen with branding
+  → Command suggestions/autocomplete
+  → Real-time progress display
+  → Beautiful status indicators
+□ Multi-language support (Bangla/English)
+□ Help system ও examples
+□ Error messages স্থানীয়করণ
+
+UI Features:
+→ ASCII Art Banner
+→ Color-coded output
+→ Progress bars
+→ Countdown timers
+→ Success/Error notifications
+
+
+【ফেজ ৬: Testing & Quality Assurance】(সপ্তাহ ৯-১০)
+────────────────────────────────────────────────────
+□ Unit Testing - প্রতিটি function আলাদাভাবে test
+□ Integration Testing - সম্পূর্ণ workflow test
+□ Load Testing - ১০০০+ iterations test
+□ Error Scenario Testing
+  → Internet disconnection
+  → API rate limit
+  → Invalid commands
+  → Platform UI changes
+□ User Acceptance Testing (UAT)
+  → Non-technical users দিয়ে test
+  → Feedback collection
+  → Usability improvements
+
+
+【ফেজ ৭: Documentation】(সপ্তাহ ১১)
+────────────────────────────────────
+□ User Guide (বাংলা) - সম্পূর্ণ নির্দেশিকা
+□ User Guide (English) - Complete guide
+□ Quick Start Guide - ৫ মিনিটে শুরু করুন
+□ Examples Collection - ২০+ real-world examples
+□ Troubleshooting Guide - সমস্যা সমাধান
+□ Video Tutorial তৈরি (ঐচ্ছিক)
+□ Code Comments - প্রতিটি function documented
+
+
+【ফেজ ৮: Deployment & Distribution】(সপ্তাহ ১২)
+───────────────────────────────────────────────
+□ Final testing ও bug fixes
+□ Version numbering (Semantic Versioning:  1.0.0)
+□ Release package preparation
+  → Single . zip file with all components
+  → Installation-free setup
+□ GitHub repository setup (if open source)
+□ Release notes preparation
+□ Launch strategy
+
+
+৭.২ Development Milestones
+---------------------------
+
+M1 [সপ্তাহ ১]: PoC (Proof of Concept) Complete
+   → Gemini API working from PowerShell
+   → Basic command parsing successful
+
+M2 [সপ্তাহ ৩]: Core Engine Functional
+   → NLP + Gemini + Execution chain working
+   → Simple commands executing successfully
+
+M3 [সপ্তাহ ৫]: DeepSeek Integration Complete
+   → Full automation on DeepSeek working
+   → 100+ iterations tested successfully
+
+M4 [সপ্তাহ ৭]: Multi-Platform Support
+   → At least 3 platforms working
+   → Universal interface implemented
+
+M5 [সপ্তাহ ৮]: User-Friendly Interface
+   → Beautiful terminal UI
+   → Bangla/English support complete
+
+M6 [সপ্তাহ ১০]:  Production-Ready Beta
+   → All features working
+   → Tested & stable
+
+M7 [সপ্তাহ ১২]: Public Release v1.0.0
+   → Documentation complete
+   → Ready for distribution
+
+================================================================================
+৮. অটোমেশন ওয়ার্কফ্লো (AUTOMATION WORKFLOW)
+================================================================================
+
+৮.১ স্টার্টআপ সিকোয়েন্স (Detailed Startup Flow)
+--------------------------------------------------
+
+USER ACTION:  Double-click Start-AutoPromptX.bat
+   │
+   ▼
+[BATCH LAUNCHER]
+   │
+   ├─→ Check PowerShell version (≥ 5.1)
+   ├─→ Set Execution Policy (Bypass for session)
+   └─→ Call AutoPrompt-X.ps1
+   │
+   ▼
+[MAIN SCRIPT INITIALIZATION]
+   │
+   ├─→ [STEP 1] Display Welcome Screen
+   │   ┌────────────────────────────────────────────┐
+   │   │   ╔═══════════════════════════════════╗   │
+   │   │   ║   AutoPrompt-X v1.0.0             ║   │
+   │   │   ║   AI Interaction Automator        ║   │
+   │   │   ╚═══════════════════════════════════╝   │
+   │   │                                            │
+   │   │   কথা বলুন, কাজ হবে!                     │
+   │   │   Speak Your Intent, Automate Your Work   │
+   │   └────────────────────────────────────────────┘
+   │
+   ├─→ [STEP 2] Load Configuration
+   │   ├─ Read Config/settings.json
+   │   ├─ Read Config/platforms.json
+   │   ├─ Load API keys (encrypted)
+   │   └─ Validate configuration
+   │
+   ├─→ [STEP 3] Import Modules
+   │   ├─ .  Utils/Logger.ps1
+   │   ├─ . Utils/DataStorage.ps1
+   │   ├─ . Utils/DelayManager.ps1
+   │   ├─ .  Utils/SessionManager.ps1
+   │   ├─ . Core/NLPProcessor.ps1
+   │   ├─ . Core/GeminiIntegration.ps1
+   │   └─ .  Core/ExecutionEngine.ps1
+   │
+   ├─→ [STEP 4] Check Dependencies
+   │   ├─ Gemini API connectivity test
+   │   ├─ Selenium/Playwright availability (if needed)
+   │   └─ Internet connection check
+   │
+   └─→ [STEP 5] Display Main Prompt
+       │
+       Write-Host "আপনি কী করতে চান? (What do you want to do?)" -ForegroundColor Cyan
+       Write-Host "উদাহরণ: ৫০০ বার NEXT লেখো ১ মিনিট ৪০ সেকেন্ড পর পর DeepSeek-এ" -ForegroundColor Gray
+       Write-Host ""
+       $userCommand = Read-Host "কমান্ড লিখুন (Enter command)"
+
+৮.২ Command Processing Workflow
+---------------------------------
+
+USER INPUT: "৫০০ বার NEXT লেখো ১ মিনিট ৪০ সেকেন্ড পর পর DeepSeek-এ"
+   │
+   ▼
+[NLP PROCESSOR]
+   │
+   ├─→ Detect Language
+   │   └─ "বাংলা" detected → Set $language = "bn"
+   │
+   ├─→ Extract Numbers (Bangla number support)
+   │   ├─ "৫০০" → 500
+   │   ├─ "১ মিনিট ৪০ সেকেন্ড" → 100 seconds
+   │   └─ Store:  $iterations=500, $delay=100
+   │
+   ├─→ Extract Action Keywords
+   │   ├─ "লেখো" / "লিখো" / "send" / "write"
+   │   └─ Identified: action = "send_message"
+   │
+   ├─→ Extract Content
+   │   └─ "NEXT" → $content = "NEXT"
+   │
+   ├─→ Extract Platform
+   │   └─ "DeepSeek-এ" → $platform = "DeepSeek"
+   │
+   └─→ Build Intent Object
+       $intent = @{
+           raw_command = $userCommand
+           language = "bn"
+           action = "send_message"
+           content = "NEXT"
+           iterations = 500
+           delay_seconds = 100
+           platform = "DeepSeek"
+       }
+   │
+   ▼
+[GEMINI AI VALIDATION & ENHANCEMENT]
+   │
+   ├─→ Send Intent to Gemini API
+   │   POST https://generativelanguage.googleapis.com/v1/... 
+   │   Body: {
+   │     "contents": [{
+   │       "parts": [{
+   │         "text": "Parse this automation command and return JSON:  
+   │                  '৫০০ বার NEXT লেখো ১ মিনিট ৪০ সেকেন্ড পর পর DeepSeek-এ'"
+   │       }]
+   │     }]
+   │   }
+   │
+   ├─→ Receive Gemini Response
+   │   {
+   │     "platform": "DeepSeek",
+   │     "action": "send_message",
+   │     "message_content": "NEXT",
+   │     "total_iterations": 500,
+   │     "delay_between_messages": 100,
+   │     "estimated_duration_minutes": 833,
+   │     "save_responses": true,
+   │     "output_format": "txt",
+   │     "safety_check": {
+   │       "rate_limit_safe": true,
+   │       "estimated_completion": "~14 hours"
+   │     }
+   │   }
+   │
+   ├─→ Display Confirmation to User
+   │   ┌────────────────────────────────────────────┐
+   │   │ পরিকল্পনা তৈরি হয়েছে:                     │
+   │   │ ─────────────────────────────────────────  │
+   │   │ প্ল্যাটফর্ম: DeepSeek                     │
+   │   │ কমান্ড: NEXT                              │
+   │   │ পুনরাবৃত্তি:  ৫০০ বার                      │
+   │   │ বিরতি: ১ মিনিট ৪০ সেকেন্ড                │
+   │   │ আনুমানিক সময়: ~১৪ ঘণ্টা                │
+   │   │                                            │
+   │   │ এগিয়ে যেতে চান? (Y/N):                   │
+   │   └────────────────────────────────────────────┘
+   │
+   └─��� User Confirmation
+       If "Y" → Continue to Execution
+       If "N" → Return to Main Prompt
+
+৮. ৩ Execution Phase (বিস্তারিত)
+--------------------------------
+
+[EXECUTION ENGINE START]
+   │
+   ├─→ Load Platform Module
+   │   Import-Module "Platforms/DeepSeek-Module. ps1"
+   │
+   ├─→ Initialize Platform Session
+   │   $session = Initialize-DeepSeekSession
+   │   ├─ Launch browser (if browser-based)
+   │   ├─ Navigate to platform URL
+   │   ├─ Check login status
+   │   └─ Verify input box availability
+   │
+   ├─→ Create Session Record
+   │   $sessionId = New-Guid
+   │   $sessionData = @{
+   │       session_id = $sessionId
+   │       start_time = Get-Date
+   │       platform = "DeepSeek"
+   │       total_iterations = 500
+   │       completed_iterations = 0
+   │       status = "running"
+   │   }
+   │   Save-SessionState -Data $sessionData
+   │
+   └─→ START AUTOMATION LOOP
+       │
+       for ($i = 1; $i -le 500; $i++) {
+           │
+           ├─→ 【PHASE 1: PRE-SEND CHECK】
+           │   │
+           │   ├─ Check Internet Connectivity
+           │   │   If (Test-Connection -ComputerName 8.8.8.8 -Count 1 -Quiet) {
+           │   │       OK
+           │   │   } Else {
+           │   │       Pause automation → Wait for reconnection
+           │   │   }
+           │   │
+           │   ├─ Verify Input Box Availability
+           │   │   $inputBox = Find-DeepSeekInputBox
+           │   │   If ($null -eq $inputBox) {
+           │   │       Retry 3 times → If fail, log error & skip
+           │   │   }
+           │   │
+           │   └─ Check Session Validity
+           │       If (Session Expired) {
+           │           Alert user → Wait for re-login → Resume
+           │       }
+           │
+           ├─→ 【PHASE 2: SEND MESSAGE】
+           │   │
+           │   ├─ Display Progress
+           │   │   Write-Host "[$i/500] পাঠানো হচ্ছে:  NEXT" -ForegroundColor Yellow
+           │   │
+           │   ├─ Send Message to Platform
+           │   │   $success = Send-DeepSeekMessage -Content "NEXT"
+           │   │
+           │   └─ Log Action
+           │       Write-Log "Iteration $i: Message sent at $(Get-Date)"
+           │
+           ├─→ 【PHASE 3: WAIT FOR RESPONSE】
+           │   │
+           │   ├─ Smart Wait Implementation
+           │   │   $responseReady = Wait-ForDeepSeekResponse -MaxWait 300
+           │   │   
+           │   │   Detection Methods:
+           │   │   1. Loading indicator disappearance
+           │   │   2. Text stability check (no changes for 3 seconds)
+           │   │   3. DOM mutation observer
+           │   │
+           │   └─ Timeout Handling
+           │       If (Not $responseReady) {
+           │           Write-LogWarning "Response timeout at iteration $i"
+           │           Continue to next iteration
+           │       }
+           │
+           ├─→ 【PHASE 4: CAPTURE RESPONSE】
+           │   │
+           │   ├─ Extract Response Text
+           │   │   $response = Get-DeepSeekResponse
+           │   │
+           │   ├─ Validate Response
+           │   │   If ($response. Length -lt 10) {
+           │   │       Write-LogWarning "Suspiciously short response"
+           │   │   }
+           │   │
+           │   └─ Save Response to File
+           │       $filename = "DeepSeek-response-$i-$(Get-Date -Format 'yyyyMMdd-HHmmss').txt"
+           │       $filepath = "Data/Outputs/DeepSeek/$filename"
+           │       Set-Content -Path $filepath -Value $response -Encoding UTF8
+           │       Write-Log "Response saved:  $filename (Length: $($response.Length) chars)"
+           │
+           ├─→ 【PHASE 5: DELAY & PROGRESS】
+           │   │
+           │   ├─ Update Session State
+           │   │   $sessionData.completed_iterations = $i
+           │   │   Save-SessionState -Data $sessionData
+           │   │
+           │   ├─ Display Progress Summary
+           │   │   ┌────────────────────────────────────────┐
+           │   │   │ অগ্রগতি:  [$i/500] সম্পন্ন             │
+           │   │   │ শতাংশ: [████████░░] 20%               │
+           │   │   │ বাকি সময়: ~11 ঘণ্টা ২০ মিনিট         │
+           │   │   └────────────────────────────────────────┘
+           │   │
+           │   ├─ Intelligent Delay
+           │   │   $delaySeconds = 100
+           │   │   
+           │   │   Write-Host "`nপরবর্তী কমান্ডের জন্য অপেক্ষা:  " -NoNewline
+           │   │   for ($countdown = $delaySeconds; $countdown -gt 0; $countdown--) {
+           │   │       Write-Host "`r$countdown সেকেন্ড...  " -NoNewline -ForegroundColor Cyan
+           │   │       Start-Sleep -Seconds 1
+           │   │   }
+           │   │   Write-Host "`r✓ প্রস্তুত!             " -ForegroundColor Green
+           │   │
+           │   └─ Anti-Detection Variation (Optional)
+           │       # Add random ±5 seconds variation
+           │       $variation = Get-Random -Minimum -5 -Maximum 5
+           │       Start-Sleep -Seconds $variation
+           │
+           └─→ 【LOOP CONTINUATION CHECK】
+               │
+               If ($i -lt 500) {
+                   Continue to next iteration
+               } Else {
+                   Proceed to Completion Phase
+               }
+       }
+
+৮.৪ Completion & Cleanup Phase
+-------------------------------
+
+[AUTOMATION COMPLETE]
+   │
+   ├─→ [1] Final Statistics
+   │   │
+   │   ├─ Calculate Metrics
+   │   │   $totalTime = (Get-Date) - $sessionData.start_time
+   │   │   $successRate = ($sessionData.completed_iterations / 500) * 100
+   │   │   $totalResponses = (Get-ChildItem "Data/Outputs/DeepSeek" -Filter "*. txt").Count
+   │   │
+   │   └─ Display Summary
+   │       ┌────────────────────────────────────────────┐
+   │       │   ✓ অটোমেশন সম্পন্ন!                     │
+   │       │   ═══════════════════════════════════════  │
+   │       │   মোট সময়: 13 ঘণ্টা 52 মিনিট            │
+   │       │   সম্পন্ন: 500/500 (100%)                 │
+   │       │   সংরক্ষিত ফাইল: 500                     │
+   │       │   গড় রেসপন্স সময়: 45 সেকেন্ড            │
+   │       │   ডেটা সংরক্ষিত: Data/Outputs/DeepSeek/  │
+   │       └────────────────────────────────────────────┘
+   │
+   ├─→ [2] Generate Report
+   │   │
+   │   ├─ Create Summary Report
+   │   │   $reportPath = "Data/Sessions/session-$sessionId-report.txt"
+   │   │   $report = @"
+   │   │   AutoPrompt-X Automation Report
+   │   │   ================================
+   │   │   Session ID: $sessionId
+   │   │   Platform: DeepSeek
+   │   │   Command: NEXT
+   │   │   
+   │   │   Started: $($sessionData.start_time)
+   │   │   Completed: $(Get-Date)
+   │   │   Duration: $totalTime
+   │   │   
+   │   │   Total Iterations: 500
+   │   │   Successful:  500
+   │   │   Failed: 0
+   │   │   Success Rate: 100%
+   │   │   
+   │   │   Output Location: Data/Outputs/DeepSeek/
+   │   │   Total Files: 500
+   │   │   "@
+   │   │   Set-Content -Path $reportPath -Value $report
+   │   │
+   │   └─ Optional: Generate CSV for analysis
+   │       Export-Csv -Path "Data/Sessions/session-$sessionId-data.csv"
+   │
+   ├─→ [3] Cleanup
+   │   │
+   │   ├─ Close Platform Session
+   │   │   Close-DeepSeekSession
+   │   │
+   │   ├─ Update Session Status
+   │   │   $sessionData.status = "completed"
+   │   │   $sessionData.end_time = Get-Date
+   │   │   Save-SessionState -Data $sessionData
+   │   │
+   │   └─ Clear Temporary Files (Optional)
+   │       Remove old session data > 30 days
+   │
+   ├─→ [4] User Notification
+   │   │
+   │   ├─ Play Success Sound (Optional)
+   │   │   [Console]::Beep(800, 200)
+   │   │   [Console]::Beep(1000, 200)
+   │   │
+   │   └─ Display Next Steps
+   │       Write-Host "`n📁 ডেটা দেখতে:  explorer Data\Outputs\DeepSeek\" -ForegroundColor Green
+   │       Write-Host "📊 রিপোর্ট দেখতে: notepad Data\Sessions\session-$sessionId-report.txt"
+   │
+   └─→ [5] Exit Options
+       │
+       Write-Host "`nআরেকটি অটোমেশন চালাতে চান? (Y/N): " -NoNewline
+       $again = Read-Host
+       
+       If ($again -eq 'Y') {
+           Clear-Host
+           Return to Main Prompt
+       } Else {
+           Write-Host "`nধন্যবাদ AutoPrompt-X ব্যবহারের জন্য! 🚀" -ForegroundColor Cyan
+           Start-Sleep -Seconds 2
+           Exit
+       }
+
+================================================================================
+৯. নিরাপত্তা ও সম্মতি (SECURITY & COMPLIANCE)
+================================================================================
+
+৯.১ API Key নিরাপত্তা
+-----------------------
+
+【এনক্রিপশন】
+├─ Gemini API Key সংরক্ষণ
+│   ├─ AES-256 encryption ব্যবহার করে encrypt করা
+│   ├─ Windows DPAPI (Data Protection API) integration
+│   └─ User-specific encryption (machine-bound)
+│
+├─ First-time Setup
+│   When user first runs: 
+│   1.  Prompt for Gemini API Key
+│   2.  Encrypt using ConvertTo-SecureString
+│   3. Save to Config/api-keys.json (encrypted)
+│   4. Original key immediately cleared from memory
+│
+└─ Runtime Usage
+    1.  Decrypt only when needed
+    2. Use in-memory only, never log
+    3. Clear from memory after use
+
+Code Example:
+```powershell
+# Save API Key (First time)
+$apiKey = Read-Host "Enter Gemini API Key" -AsSecureString
+$encryptedKey = ConvertFrom-SecureString $apiKey
+Set-Content "Config/api-keys.json" -Value $encryptedKey
+
+# Load API Key (Runtime)
+$encryptedKey = Get-Content "Config/api-keys.json"
+$secureKey = ConvertTo-SecureString $encryptedKey
+$apiKey = [System.Runtime.InteropServices.Marshal]:: PtrToStringAuto(
+    [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureKey)
+)
+```
+
+৯.২ ডেটা প্রাইভেসি
+--------------------
+
+【Local-Only Processing】
+├─ সব ডেটা শুধুমাত্র ব্যবহারকারীর কম্পিউটারে সংরক্ষিত
+├─ কোনো টেলিমেট্রি বা অনলাইন সিঙ্ক নেই
+├─ AI রেসপন্স শুধু local file-এ save
+└─ Session data সম্পূর্ণ offline
+
+【User Data Control】
+├─ ব্যবহারকারী যেকোনো সময় Data ফোল্ডার ডিলিট করতে পারেন
+├─ Export/Backup features
+└─ GDPR-compliant (যদি ভবিষ্যতে cloud feature যুক্ত হয়)
+
+৯.৩ AI Platform Terms of Service সম্মতি
+-----------------------------------------
+
+【Rate Limiting】
+├─ DeepSeek:  Default 100s delay (recommended:  60s minimum)
+├─ ChatGPT: Default 120s delay (Free tier: 3 msg/min limit)
+├─ Claude: Default 90s delay
+└─ Gemini API:  Follows official rate limits (60 requests/minute)
+
+【

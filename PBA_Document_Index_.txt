@@ -1,0 +1,959 @@
+================================================================================
+                         DOCUMENT INDEX & QUICK REFERENCE
+================================================================================
+                   Portable Browser Automator (PBA) v1.0
+                      Technical Blueprint - Master Index
+================================================================================
+
+প্রস্তুতকারী: PBA Development Team
+ইনডেক্স সংস্করণ: 1.0
+তারিখ: ২০২৬-০১-০৯
+ডকুমেন্ট পৃষ্ঠা: 58+ (আনুমানিক)
+
+================================================================================
+                            বিষয়বস্তু সংক্ষিপ্তসার
+================================================================================
+
+মোট বিভাগ: ১৪টি প্রধান সেকশন
+মোট সাব-বিভাগ: ৬৫+ সাব-সেকশন
+মূল বিষয়বস্তু: 
+├─ নির্বাহী পরিকল্পনা:  ৪টি সেকশন (১-৪)
+├─ প্রযুক্তিগত স্থাপত্য: ২টি সেকশন (৫-৬)
+├─ বাস্তবায়ন ও কর্মপ্রবাহ: ২টি সেকশন (৭-৮)
+├─ নিরাপত্তা ও ঝুঁকি: ২টি সেকশন (৯-১০)
+└─ পরীক্ষণ ও ভবিষ্যৎ পরিকল্পনা: ৪টি সেকশন (১১-১৪)
+
+================================================================================
+                         SECTION 1: নির্বাহী সারসংক্ষেপ
+================================================================================
+পৃষ্ঠা অবস্থান: লাইন 12-33
+শ্রেণী: Executive Summary / Overview
+
+【বিষয়বস্তু】
+├─ প্রজেক্ট পরিচিতি
+│   ├─ নাম:  Portable Browser Automator (PBA)
+│   ├─ ট্যাগলাইন: "Zero-Installation AI Workflow Automation"
+│   └─ মূল ধারণা: PowerShell + Selenium-based browser automation
+│
+├─ মূল প্রযুক্তি
+│   ├─ DOM-level interaction (mouse/keyboard simulation নয়)
+│   ├─ 300% faster than traditional methods
+│   └─ Background execution capable
+│
+└─ প্রয়োগক্ষেত্র
+    ├─ দীর্ঘ AI প্রম্পট চেইনিং
+    ├─ পুনরাবৃত্তিমূলক ডেটা প্রসেসিং
+    ├─ ব্যাচ কন্টেন্ট জেনারেশন
+    └─ রিসার্চ ওয়ার্কফ্লো অপটিমাইজেশন
+
+【���ীওয়ার্ড】
+automation, portable, selenium, AI, browser, DOM, DeepSeek, Gemini
+
+================================================================================
+                  SECTION 2: প্রজেক্টের দৃষ্টিভঙ্গি ও উদ্দেশ্য
+================================================================================
+পৃষ্ঠা অবস্থান:  লাইন 35-66
+শ্রেণী: Vision & Objectives
+
+২. ১ দৃষ্টিভঙ্গি (Vision) - লাইন 37-41
+────────────────────────────────────
+মূল দৃষ্টিভঙ্গি: যেকোনো Windows কম্পিউটারে plug-in করে তাৎক্ষণিকভাবে 
+AI workflow স্বয়ংক্রিয় করা, কোনো installation ছাড়াই।
+
+২.২ মূল উদ্দেশ্য (Primary Objectives) - লাইন 43-66
+──────────────────────────────────────────────────
+
+[OBJ-001] পোর্টেবিলিটি নিশ্চিতকরণ
+          → Self-contained environment
+          → Zero system dependency
+          
+[OBJ-002] ড্রাইভার-বেসড অটোমেশন
+          → DOM manipulation
+          → 300% faster performance
+          
+[OBJ-003] স্টেটফুল সেশন ম্যানেজমেন্ট
+          → Login persistence
+          → Cookie/cache management
+          
+[OBJ-004] Human-like Behavior Simulation
+          → Anti-bot bypass
+          → Random timing patterns
+          
+[OBJ-005] এক্সটেনসিবিলিটি
+          → Multi-platform support
+          → Modular configuration
+
+【কীওয়ার্ড】
+portability, DOM manipulation, session management, anti-bot, extensibility
+
+================================================================================
+                        SECTION 3: সমস্যা বিবৃতি
+================================================================================
+পৃষ্ঠা অবস্থান:  লাইন 68-95
+শ্রেণী: Problem Statement
+
+৩.১ বর্তমান চ্যালেঞ্জসমূহ - লাইন 70-85
+───────────────────────────────────
+
+[P-001] পুনরাবৃত্তিমূলক AI ইন্টারঅ্যাকশন
+        সময় ব্যয়: ২-৩ ঘণ্টা/সেশন
+
+[P-002] সাধারণ অটোমেশন টুলের সীমাবদ্ধতা
+        → AutoHotkey/PyAutoGUI limitations
+        → No background execution
+        → Pixel-based unreliability
+
+[P-003] ইনস্টলেশন নির্ভরতা
+        → Admin rights required
+        → Corporate machine incompatibility
+
+[P-004] বট ডিটেকশন
+        → AI platforms detecting automation
+        → Scripts getting blocked
+
+৩.২ প্রভাব বিশ্লেষণ - লাইন 87-95
+────────────────────────────────
+- উৎপাদনশীলতা হ্রাস:  40-60% সময় manual কাজে
+- ক্লান্তিজনিত ত্রুটি
+- স্কেলেবিলিটি সমস্যা
+
+【কীওয়ার্ড】
+challenges, limitations, bot detection, productivity, manual work
+
+================================================================================
+                        SECTION 4: প্রস্তাবিত সমাধান
+================================================================================
+পৃষ্ঠা অবস্থান: লাইন 97-128
+শ্রেণী:  Proposed Solution
+
+৪.১ সলিউশন ওভারভিউ - লাইন 99-116
+──────────────────────────────────
+
+ত্রি-স্তরীয় সমাধান: 
+
+[স্তর ১] পোর্টেবল রানটাইম পরিবেশ
+         → Chrome Portable
+         → ChromeDriver
+         → Selenium Libraries
+
+[স্তর ২] অটোমেশন ইঞ্জিন
+         → PowerShell scripting
+         → JSON configuration
+         → Smart Wait mechanism
+
+[স্তর ৩] ইন্টেলিজেন্ট লজিক লেয়ার
+         → DOM element detection
+         → Dynamic response monitoring
+         → Error recovery
+
+৪.২ মূল পার্থক্যকারী বৈশিষ্ট্য - লাইন 118-128
+──────────────────────────────────────────
+✓ DOM-Level Interaction
+✓ Background Execution
+✓ Session Persistence
+✓ Smart Delay Algorithm
+✓ Modular Configuration
+✓ Zero-Footprint
+
+【কীওয়ার্ড】
+solution, architecture, layers, features, differentiators
+
+================================================================================
+                      SECTION 5: সিস্টেম আর্কিটেকচার
+================================================================================
+পৃষ্���া অবস্থান: লাইন 130-295
+শ্রেণী: System Architecture (সবচেয়ে বড় সেকশন)
+
+৫.১ ডিরেক্টরি স্ট্রাকচার - লাইন 132-186
+────────────────────────────────────────
+
+মূল ফোল্ডার স্ট্রাকচার:
+PBA/
+├── App/ChromePortable/          [Browser binaries]
+├── Drivers/                     [ChromeDriver + updater]
+├── Libraries/                   [. NET dependencies]
+├── Workspace/                   [User data storage]
+│   ├── UserData/               [Browser profiles]
+│   ├── Logs/                   [Automation logs]
+│   └── Output/                 [AI responses]
+├── Scripts/                     [PowerShell logic]
+│   ├── Core/                   [Initialization]
+│   ├── Automation/             [Platform-specific]
+│   └── Utils/                  [Helper functions]
+├── Config/                      [JSON configurations]
+├── Docs/                        [Documentation]
+└── Start-Tool. bat              [Main launcher]
+
+ফাইল সংখ্যা: 20+ মূল ফাইল
+ফোল্ডার গভীরতা: সর্বোচ্চ 4 স্তর
+
+৫.২ কম্পোনেন্ট ডায়াগ্রাম - লাইন 188-222
+────────────────────────────────────────
+
+স্তরবিন্যাস (টপ টু বটম):
+1. USER INTERFACE LAYER (Start-Tool.bat/GUI)
+2. ORCHESTRATION LAYER (PowerShell Scripts)
+3. AUTOMATION ENGINE LAYER (Selenium WebDriver)
+4. COMMUNICATION LAYER (Chrome DevTools Protocol)
+5. BROWSER RUNTIME LAYER (Chrome Portable)
+6. TARGET APPLICATION LAYER (AI Websites)
+
+৫.৩ ডেটা ফ্লো আর্কিটেকচার - লাইন 224-295
+───────────────────────────────────────
+
+মূল ধাপসমূহ:
+1. Config Loading
+2. Environment Setup
+3. Browser Launch
+4. Target Navigation
+5. Master Prompt Injection
+6. Automation Loop (5-phase cycle)
+   ├─ CHECK (Element verification)
+   ├─ INPUT (Text entry)
+   ├─ TRIGGER (Send button)
+   ├─ WAIT (Response completion)
+   └─ DELAY (Anti-detection pause)
+
+【কীওয়ার্ড】
+architecture, directory structure, components, data flow, layers
+
+================================================================================
+                   SECTION 6: কারিগরি স্ট্যাক ও প্রযুক্তি
+================================================================================
+পৃষ্ঠা অবস্থান: লাইন 297-350
+শ্রেণী: Technology Stack
+
+৬.১ কোর টেকনোলজি - লাইন 299-315
+────────────────────────────────
+
+প্রযুক্তি সারণী: 
+┌──────────────────┬──────────────┬─────────────────┐
+│ Component        │ Technology   │ Version         │
+├──────────────────┼──────────────┼─────────────────┤
+│ Scripting        │ PowerShell   │ 5.1+ / Core 7. x │
+│ Automation       │ Selenium     │ WebDriver 4.x   │
+│ Browser          │ Chrome       │ Portable 120+   │
+│ Driver           │ ChromeDriver │ Auto-matched    │
+│ Communication    │ CDP          │ Chrome native   │
+│ Configuration    │ JSON         │ UTF-8           │
+└──────────────────┴──────────────┴─────────────────┘
+
+৬.২ . NET লাইব্রেরি ডিপেন্ডেন্সি - লাইন 317-334
+─────────────────────────────────────────────
+
+প্রয়োজনীয় DLL:
+1. WebDriver.dll (Selenium. WebDriver)
+   → Browser automation core
+   → Element locators (CSS, XPath)
+   → JavaScript executor
+
+2. WebDriver.Support.dll (Selenium.Support)
+   → Wait mechanisms
+   → Page Object Model
+   → Select element wrapper
+
+3. Newtonsoft.Json.dll (JSON.NET)
+   → Config parsing
+   → Data serialization
+   → Dynamic objects
+
+৬.৩ ব্রাউজার কনফিগারেশন প্যারামিটার - লাইন 336-350
+───────────────────────────────────────────────
+
+Chrome Launch Arguments (7টি মূল আর্গুমেন্ট):
+--user-data-dir=<path>
+--remote-debugging-port=9222
+--no-first-run
+--no-default-browser-check
+--disable-blink-features=AutomationControlled
+--disable-dev-shm-usage
+--window-size=1920,1080
+
+【কীওয়ার্ড】
+technology stack, PowerShell, Selenium, Chrome, .NET, libraries, configuration
+
+================================================================================
+                      SECTION 7: বাস্তবায়ন পরিকল্পনা
+================================================================================
+পৃষ্ঠা অবস্থান: লাইন 352-545
+শ্রেণী: Implementation Plan (দ্বিতীয় বৃহত্তম সেকশন)
+
+৭.১ ডেভেলপমেন্ট ফেজ - লাইন 354-530
+─────────────────────────────────
+
+মোট ফেজ: ১০টি (ফেজ ০ থেকে ফেজ ৯)
+মোট সময়: ২০ সপ্তাহ (৫ মাস)
+
+【ফেজ ০:  প্রস্তুতি ও গবেষণা】- সপ্তাহ 1-2
+────────────────────────────────────────
+□ Selenium API study
+□ UI reverse engineering
+□ Chrome Portable setup research
+□ PowerShell + . NET testing
+□ Bot-detection analysis
+
+Deliverables:  Feasibility report, UI mapping, PoC script
+
+【ফেজ ১:  পরিবেশ নির্মাণ】- সপ্তাহ 3-4
+──────────────────────────────────────
+□ Directory structure
+□ Chrome Portable configuration
+□ ChromeDriver auto-matching
+□ Selenium DLL testing
+□ UserData architecture
+
+Scripts: Initialize. ps1, WebDriver-Manager.ps1
+Testing: Portability, zero-install, data persistence
+
+【ফেজ ২: মূল অটোমেশন ইঞ্জিন】- সপ্তাহ 5-7
+─────────────────────────────────────────
+□ Browser-Controller.ps1
+□ DOM Element Locator
+□ Text Input Simulator
+□ Click Action Executor
+□ Smart Wait Mechanism
+
+Functions: Find-Element, Type-Text, Wait-ForResponse, Click-Element
+
+【ফেজ ৩: AI প্ল্যাটফর্ম ইন্টিগ্রেশন】- সপ্তাহ 8-9
+───────────────────────────────────────────────
+□ DeepSeek-Automator.ps1
+□ Gemini-Automator.ps1
+□ Generic template
+
+Platform-specific UI mapping
+
+【ফেজ ৪: ইন্টেলিজেন্ট ফিচার】- সপ্তাহ 10-11
+────────────────────────────────────────────
+□ Anti-Detection. ps1
+  → Random delay (Gaussian distribution)
+  → Typing speed variation
+  → User-Agent rotation
+□ Smart-Wait.ps1
+  → Loading indicator detection
+  → Text change monitoring
+□ Error Recovery System
+
+【ফেজ ৫: কনফিগারেশন সিস্টেম】- সপ্তাহ 12
+──────────────────────────────────────────
+□ config. json structure
+□ prompts.json templates
+□ targets.json multi-site
+□ JSON validation
+□ Hot-reload capability
+
+【ফেজ ৬: লগিং ও মনিটরিং】- সপ্তাহ 13
+───────────────────────────────────────
+□ Logger.ps1
+  → Timestamp logging
+  → Log levels (INFO, WARN, ERROR)
+  → Automatic rotation
+□ Performance metrics
+□ Response archiving
+
+【ফেজ ৭: ইউজার ইন্টারফেস】- সপ্তাহ 14-15
+──────────────────────────────────────────
+□ Start-Tool.bat launcher
+□ (Optional) GUI Dashboard (WPF)
+
+【ফেজ ৮: টেস্টিং ও অপটিমাইজেশন】- সপ্তাহ 16-17
+────────────────────────────────────────────────
+□ Multi-Windows testing
+□ Network speed testing
+□ Long-term stability (24+ hours)
+□ Memory leak detection
+□ Performance bottlenecks
+□ Bot-detection rate measurement
+
+【ফেজ ৯: ডকুমেন্টেশন】- সপ্তাহ 18
+────────────────────────────────────
+□ User Manual (Bangla + English)
+□ API Reference
+□ Troubleshooting Guide
+□ Video tutorials
+□ Code documentation
+
+【ফেজ ১০: রিলিজ প্রস্তুতি】- সপ্তাহ 19-20
+──────────────────────────────────────────
+□ Security audit
+□ Portable package (. zip)
+□ Semantic versioning
+□ Release notes
+□ Distribution strategy
+
+৭.২ মাইলস্টোন ও ডেলিভারেবল - লাইন 532-545
+───────────────────────────────────────────
+
+M1 [সপ্তাহ 4]: Portable Environment
+M2 [সপ্তাহ 7]: Core Engine Functional
+M3 [সপ্তাহ 9]: DeepSeek Integration
+M4 [সপ্তাহ 12]:  Multi-platform Support
+M5 [সপ্তাহ 15]: User Interface
+M6 [সপ্তাহ 20]: Production Release v1.0
+
+【কীওয়ার্ড】
+implementation, phases, timeline, milestones, deliverables, development
+
+================================================================================
+                      SECTION 8: অটোমেশন ওয়ার্কফ্লো
+================================================================================
+পৃষ্ঠা অবস্থান:  লাইন 547-810
+শ্রেণী: Automation Workflow (বৃহত্তম ও সবচেয়ে জটিল সেকশন)
+
+৮.১ স্টার্টআপ সিকোয়েন্স - লাইন 549-587
+─────────────────────────────────────
+
+5-ধাপ স্টার্টআপ:
+START → Batch Execution
+  ├─ [STEP 1] Environment Check
+  │   └─ PowerShell, DLLs, Chrome, Workspace
+  ├─ [STEP 2] Configuration Loading
+  │   └─ config.json, prompts.json, targets.json
+  ├─ [STEP 3] Selenium Initialization
+  │   └─ Load assemblies, create ChromeDriver
+  ├─ [STEP 4] Browser Launch
+  │   └─ Start Chrome with arguments
+  └─ [STEP 5] Target Navigation
+      └─ Navigate to chat.deepseek.com
+
+৮.২ মাস্টার প্রম্পট ইনজেকশন - লাইন 589-633
+───────────────────────────────────────────
+
+4-ধাপ প্রসেস: 
+INITIALIZATION
+  ├─ [A] Textarea Element Locate
+  │   └─ CSS Selector → XPath fallback (30s timeout)
+  ├─ [B] Master Prompt Typing
+  │   └─ Human-like simulation (150-300ms/char)
+  ├─ [C] Send Button Trigger
+  │   └─ Click with verification
+  └─ [D] Initial Response Wait
+      └─ Smart Wait function
+
+৮.৩ মূল অটোমেশন লুপ - লাইন 635-760
+────────────────────────────────────
+
+5-পর্যায় চক্র (N iterations):
+
+┌─────────────────────────────────┐
+│ Iteration Counter: $i = 1 to N │
+└─────────────────────────────────┘
+       │
+       ├─→【PHASE 1: CHECK】
+       │   └─ Element availability verification
+       │      ├─ Is Displayed?
+       │      ├─ Is Enabled?
+       │      └─ Is Interactable?
+       │
+       ├─→【PHASE 2: INPUT】
+       │   └─ Text entry
+       │      ├─ Clear textarea
+       │      ├─ Type "NEXT"
+       │      └─ Verify input
+       │
+       ├─→【PHASE 3: TRIGGER】
+       │   └─ Action execution
+       │      ├─ Locate send button
+       │      ├─ Pre-click verification
+       │      └─ Click (with JS fallback)
+       │
+       ├─→【PHASE 4: WAIT】
+       │   └─ Response completion detection
+       │      ├─ Method 1: Loading indicator
+       │      ├─ Method 2: Text stability
+       │      └─ Method 3: DOM Mutation Observer
+       │
+       └─→【PHASE 5: DELAY】
+           └─ Anti-detection pause
+              ├─ Random 3-7s (Gaussian)
+              └─ Progress display
+
+Loop:  if $i < N → Return to PHASE 1
+      else → Proceed to SHUTDOWN
+
+৮.৪ শাটডাউন সিকোয়েন্স - লাইন 762-788
+─────────────────────────────────────
+
+5-ধাপ পরিচ্ছন্নতা:
+AUTOMATION COMPLETE
+  ├─ [1] Final logging (stats, time, success rate)
+  ├─ [2] Data persistence (responses, session)
+  ├─ [3] Browser cleanup (cache, tabs)
+  ├─ [4] WebDriver disposal (quit, release)
+  └─ [5] User notification (success, logs, exit)
+
+৮.৫ ব্যতিক্রম ব্যবস্থাপনা - লাইন 790-810
+──────────────────────────────────────────
+
+6টি প্রধান ত্রুটি প্রকার: 
+
+[E1] Element Not Found
+     Cause: UI changes, page load issues
+     Recovery: Wait → Retry → Alternative selectors → Screenshot
+
+[E2] Timeout Exception
+     Cause: Slow network, long AI processing
+     Recovery: Extend timeout → Check network → Pause
+
+[E3] Session Lost
+     Cause: Logout, cookie expiry
+     Recovery: Detect → Pause → Notify → Resume
+
+[E4] Network Disconnection
+     Cause: Internet loss
+     Recovery:  Detect → Wait 5min → Retry → Save state
+
+[E5] Bot Detection / CAPTCHA
+     Cause: Anti-automation
+     Recovery: Pause → Alert → Wait manual solve → Resume
+
+[E6] Browser Crash
+     Cause: Memory leak, driver issue
+     Recovery: Detect → Save → Restart → Resume
+
+Prevention strategies included for each error type
+
+【কীওয়ার্ড】
+workflow, automation loop, startup, shutdown, error handling, phases
+
+================================================================================
+                      SECTION 9: নিরাপত্তা ও সম্মতি
+================================================================================
+পৃষ্ঠা অবস্থান: লাইন 812-900
+শ্রেণী: Security & Compliance
+
+৯.১ নিরাপত্তা ব্যবস্থা - লাইন 814-855
+──────────────────────────────────────
+
+3টি নিরাপত্তা ক্ষেত্র: 
+
+【ডেটা সুরক্ষা】
+├─ UserData Encryption (AES-256)
+├─ Credential Management (Windows Credential Manager)
+│   └─ No plain text passwords
+└─ Audit Logging (timestamp, redaction, permissions)
+
+【নেটওয়ার্ক সুরক্ষা】
+├─ HTTPS-only connections (SSL verification)
+├─ No external transmission (local processing)
+└─ Firewall-friendly (standard ports 80, 443)
+
+【কোড সুরক্ষা】
+├─ Input sanitization (prevent injection)
+├─ Execution policy (script signing)
+└─ No remote code execution (local scripts only)
+
+৯.২ সম্মতি ও ���ৈতিকতা - লাইন 857-900
+─────────────────────────────────────
+
+3টি সম্মতি ক্ষেত্র: 
+
+【AI Platform Terms of Service】
+├─ Rate Limiting Compliance
+│   ├─ DeepSeek:  Max 60/hour → Default 20/hour
+│   └─ Gemini: Max 100/hour → Default 30/hour
+├─ Respectful Usage (no spam, no overload)
+└─ Disclosure (personal productivity only)
+
+【ব্যবহারকারী দায়িত্ব】
+├─ Use Case Restrictions
+│   ✓ Allowed: Research, content assistance
+│   ✗ Prohibited: Data harvesting, abuse, spam
+├─ Legal Compliance (local laws)
+└─ Liability (tool "as-is", user responsible)
+
+【Privacy Measures】
+├─ No Data Collection (zero telemetry)
+├─ Local Processing Only (device-only storage)
+└─ User Control (deletable anytime)
+
+【কীওয়ার্ড】
+security, compliance, encryption, privacy, ethics, ToS, rate limiting
+
+================================================================================
+                        SECTION 10: ঝুঁকি ব্যবস্থাপনা
+================================================================================
+পৃষ্ঠা অবস্থান: লাইন 902-930
+শ্রেণী: Risk Management
+
+ঝুঁকি ম্যাট্রিক্স সারণী - লাইন 904-930
+────────────────────────────────────
+
+8টি চিহ্নিত ঝুঁকি: 
+
+┌────────┬──────────────────────┬────────┬────────┬──────────────┐
+│Risk ID │ Description          │Prob.    │Impact  │ Mitigation   │
+├────────┼──────────────────────┼────────┼────────┼──────────────┤
+│ R-001  │ Bot detection        │ Medium │ High   │ Anti-detect  │
+│ R-002  │ UI changes           │ High   │ Medium │ Multi-select │
+│ R-003  │ Driver mismatch      │ Medium │ High   │ Auto-update  │
+│ R-004  │ Session expiry       │ Low    │ Medium │ Validation   │
+│ R-005  │ Network instability  │ Medium │ Medium │ Retry logic  │
+│ R-006  │ Memory leak          │ Low    │ High   │ Restart      │
+│ R-007  │ ToS violation        │ Low    │ High   │ Rate limit   │
+│ R-008  │ Data loss            │ Low    │ Medium │ Auto-save    │
+└────────┴──────────────────────┴────────┴────────┴──────────────┘
+
+Probability Levels:  Low / Medium / High
+Impact Levels: Low / Medium / High
+
+【কীওয়ার্ড】
+risk management, mitigation, probability, impact, strategies
+
+================================================================================
+                        SECTION 11: পরীক্ষণ কৌশল
+================================================================================
+পৃষ্ঠা অবস্থান: লাইন 932-1020
+শ্রেণী: Testing Strategy
+
+১১.১ ইউনিট টেস্টিং - লাইন 934-965
+────────────────────────────────
+
+4টি টেস্ট ক্যাটাগরি:
+
+[TS-001] Element Locator Functions
+         ├─ Valid CSS selector
+         ├─ Invalid selector (timeout)
+         └─ Fallback to XPath
+
+[TS-002] Text Input Functions
+         ├─ Human-like simulation
+         ├─ Special characters
+         └─ Long strings (>1000 chars)
+
+[TS-003] Smart Wait Functions
+         ├─ Quick response (5s)
+         ├─ Slow response (60s)
+         └─ Timeout scenario
+
+[TS-004] Random Delay Generator
+         ├─ 100 samples distribution
+         └─ Min/Max boundary
+
+১১.২ ইন্টিগ্রেশন টেস্টিং - লাইন 967-988
+───────────────────────────────────────
+
+3টি ইন্টিগ্রেশন টেস্ট:
+
+[TS-101] Full Workflow Test
+         └─ 5 iterations on DeepSeek
+
+[TS-102] Multi-Platform Test
+         └─ DeepSeek → Gemini switching
+
+[TS-103] Configuration Change Test
+         └─ Runtime config modification
+
+১১.৩ সিস্টেম টেস্টিং - লাইন 990-1015
+─────────────────────────────────────
+
+4টি এন্ড-টু-এন্ড টেস্ট:
+
+[TS-201] Portability Test
+         ├─ Windows 10 (Fresh)
+         ├─ Windows 11 (Corporate)
+         └─ Windows 10 (No admin)
+
+[TS-202] Long-Duration Test
+         └─ 100 iterations (~5 hours)
+
+[TS-203] Network Interruption Test
+         └─ Disconnect at iteration 10
+
+[TS-204] Bot Detection Test
+         └─ Aggressive vs Normal mode
+
+১১.৪ ইউজার অ্যাক্সেপটেন্স টেস্টিং - লাইন 1017-1020
+────────────────────────────────────────────────────
+
+2টি UAT টেস্ট: 
+
+[TS-301] Ease of Use Test
+         └─ Non-technical user setup (<10 min)
+
+[TS-302] Documentation Test
+         └─ Follow manual only
+
+【কীওয়ার্ড】
+testing, unit tests, integration, system testing, UAT, validation
+
+================================================================================
+                      অসম্পূর্ণ SECTIONS (১২-১৪)
+================================================================================
+
+নোট:  মূল ডকুমেন্টে নিম্নলিখিত সেকশনগুলি সূচিপত্রে উল্লেখ আছে কিন্তু 
+বিস্তারিত বিষয়বস্তু প্রদান করা হয়নি: 
+
+SECTION 12: ভবিষ্যৎ রোডম্যাপ (Future Roadmap)
+───────────────────────────────────────────
+অবস্থা: Not Detailed in Document
+প্রত্যাশিত বিষয়বস্তু: 
+├─ Multi-Platform Support (ChatGPT, Claude সম্প্রসারণ)
+├─ AI Studio Integration
+├─ GUI Interface Development
+├─ API Development
+└─ Community Features
+
+মূল ডকুমেন্টে উল্লেখিত ভবিষ্যৎ বৈশিষ্ট্য (প্রারম্ভিক সারসংক্ষেপ থেকে):
+→ Multi-Platform Support (Gemini, ChatGPT, DeepSeek একসাথে)
+→ Google AI Studio Integration (response quality verification)
+→ GUI Dashboard (PowerShell console-এর পরিবর্তে)
+
+SECTION 13: সম্পদ প্রয়োজনীয়তা (Resource Requirements)
+────────────────────────────────────────────────────
+অবস্থা: Not Detailed in Document
+প্রত্যাশিত বিষয়বস্তু:
+├─ Human Resources (developers, testers)
+├─ Hardware Requirements
+├─ Software Licenses
+├─ Budget Estimation
+└─ Timeline Resources
+
+SECTION 14: সাফল্যের মাপকাঠি (Success Metrics)
+─────────────────────────────────────────────
+অবস্থা: Not Detailed in Document
+প্রত্যাশিত বিষয়বস্তু:
+├─ Performance Metrics
+│   ├─ Execution speed benchmarks
+│   ├─ Success rate targets
+│   └─ Resource utilization
+├─ User Satisfaction Metrics
+│   ├─ Ease of use ratings
+│   └─ Adoption rate
+├─ Technical Metrics
+│   ├─ Bot detection avoidance rate
+│   ├─ Uptime/stability percentage
+│   └─ Error recovery success rate
+└─ Business Metrics
+    ├─ Time saved per user
+    ├─ Productivity improvement %
+    └─ ROI calculation
+
+================================================================================
+                          কীওয়ার্ড সূচক (KEYWORD INDEX)
+================================================================================
+
+প্রধান প্রযুক্তিগত শব্দাবলী - বর্ণানুক্রমিক:
+──────────────────────────────────────────
+
+A
+- Anti-Detection → Sections 4. 2, 7.1 (Phase 4), 8.3, 9.1
+- API → Sections 6.2, 7.1 (Phase 0)
+- Architecture → Section 5 (সম্পূর্ণ)
+- Automation → Sections 1, 2, 4, 8 (সম্পূর্ণ)
+
+B
+- Background Execution → Sections 1, 4. 2
+- Bot Detection → Sections 3.1, 7.1, 8.5, 10, 11.3
+- Browser → Sections 1, 5, 6.3, 8
+- Browser-Controller → Sections 5. 1, 7.1
+
+C
+- CAPTCHA → Section 8.5
+- CDP (Chrome DevTools Protocol) → Sections 5.2, 6.1
+- Chrome → Sections 5.1, 6.1, 6.3, 7.1
+- ChromeDriver → Sections 5.1, 6.1, 7.1, 8.1, 10
+- Compliance → Section 9 (সম্পূর্ণ)
+- Configuration → Sections 4.1, 5.1, 6.1, 7.1 (Phase 5), 8.1
+
+D
+- DeepSeek → Sections 1, 7.1 (Phase 3), 8.1, 9.2, 11.2
+- DOM (Document Object Model) → Sections 1, 2. 2, 4.1, 5.3, 6.2, 8.3
+- Driver → Sections 2.2, 5.1, 6.1, 10
+
+E
+- Encryption → Section 9.1
+- Error Handling → Sections 4.1, 7.1 (Phase 4), 8.5
+- Ethics → Section 9.2
+
+F
+- Fallback → Sections 7.1, 8.2, 8.5
+
+G
+- Gaussian Distribution → Sections 7.1, 8.3
+- Gemini → Sections 1, 7.1 (Phase 3), 9.2, 11.2
+- GUI → Sections 5.2, 7.1 (Phase 7)
+
+H
+- Human-like Behavior → Sections 2.2, 7.1, 8.2, 8.3
+
+I
+- Implementation → Section 7 (সম্পূর্ণ)
+- Integration �� Sections 7.1 (Phase 3), 11.2
+
+J
+- JavaScript → Sections 5.2, 6.2, 8.3
+- JSON → Sections 5.1, 6.1, 7.1, 8.1
+
+L
+- Libraries → Sections 5.1, 6.2, 8.1
+- Logging → Sections 5.1, 7.1 (Phase 6), 8.3, 8.4, 9.1
+- Loop → Sections 5.3, 8.3
+
+M
+- Master Prompt → Sections 5.3, 8.2
+- Mitigation → Section 10
+- Modular → Sections 2.2, 4.2
+
+N
+- . NET → Sections 4.1, 6.2, 7.1, 8.1
+- Network → Sections 8.5, 9.1, 10, 11.3
+
+O
+- Objectives → Section 2
+
+P
+- Phase → Section 7. 1 (10 phases), 8.3 (5 phases)
+- Portable → Sections 1, 2.1, 2.2, 4.1, 5.1, 6.1, 7.1, 11.3
+- PowerShell → Sections 1, 4.1, 5.1, 6.1, 7.1
+- Privacy → Section 9.2
+- Problem Statement → Section 3
+
+R
+- Rate Limiting → Sections 9.2, 10
+- Recovery → Section 8.5
+- Risk → Section 10 (সম্পূর্ণ)
+
+S
+- Security → Section 9 (সম্পূর্ণ)
+- Selenium → Sections 1, 4.1, 5.1, 6.1, 6.2, 7.1, 8.1
+- Session → Sections 2.2, 4.2, 5.1, 8.1, 8.5, 9.1, 10
+- Smart Wait → Sections 4.1, 5.1, 7.1, 8.2, 11.1
+- Solution → Section 4
+
+T
+- Testing → Section 11 (সম্পূর্ণ)
+- Timeout → Sections 7.1, 8.2, 8.5, 11.1
+- ToS (Terms of Service) → Sections 9.2, 10
+
+U
+- UAT (User Acceptance Testing) → Section 11.4
+- UserData → Sections 5.1, 5.3, 7.1, 8.1, 9.1
+
+V
+- Validation → Sections 8.1, 10, 11
+- Vision → Section 2.1
+
+W
+- WebDriver → Sections 4.1, 5.1, 5.2, 6.1, 6.2, 7.1, 8.1, 8.4
+- Workflow → Section 8 (��ম্পূর্ণ)
+
+X
+- XPath → Sections 6.2, 7.1, 8.2, 11.1
+
+================================================================================
+                        দ্রুত রেফারেন্স গাইড (QUICK REFERENCE)
+================================================================================
+
+প্রায়শই ব্যবহৃত তথ্যের দ্রুত অ্যাক্সেস: 
+─────────────────────────────────────────
+
+【প্রজেক্ট মূল তথ্য】
+├─ নাম:  Portable Browser Automator (PBA)
+├─ সংস্করণ: v1.0
+├─ প্রধান প্রযুক্তি: PowerShell + Selenium + Chrome
+├─ মোট উন্নয়ন সময়: ২০ সপ্তাহ (৫ মাস)
+└─ মূল উদ্দেশ্য: AI workflow automation without installation
+
+【ফোল্ডার স্ট্রাকচার সারসংক্ষেপ】
+PBA/
+├─ App/ (Chrome Portable)
+├─ Drivers/ (ChromeDriver)
+├─ Libraries/ (Selenium DLLs)
+├─ Workspace/ (Logs, UserData, Output)
+├─ Scripts/ (Core, Automation, Utils)
+├─ Config/ (JSON files)
+└─ Docs/ (Manuals)
+
+【মূল স্ক্রিপ্ট ফাইল】
+1. Initialize.ps1 - Environment setup
+2. WebDriver-Manager.ps1 - Driver management
+3. Browser-Controller.ps1 - Browser control
+4. DeepSeek-Automator.ps1 - DeepSeek integration
+5. Gemini-Automator.ps1 - Gemini integration
+6. Smart-Wait.ps1 - Response detection
+7. Anti-Detection.ps1 - Bot avoidance
+8. Logger.ps1 - Logging system
+
+【অটোমেশন লুপ (দ্রুত দর্শন)】
+Loop:  CHECK → INPUT → TRIGGER → WAIT → DELAY → Repeat
+
+【প্রধান ঝুঁকি】
+1. Bot detection (High impact)
+2. UI changes (High probability)
+3. Driver mismatch (High impact)
+
+【পরীক্ষণ স্তর】
+1. Unit Testing (4 categories)
+2. Integration Testing (3 scenarios)
+3. System Testing (4 tests)
+4. UAT (2 tests)
+
+【প্রধান মাইলস্টোন】
+M1: Week 4 - Portable Environment
+M2: Week 7 - Core Engine
+M3: Week 9 - DeepSeek Integration
+M6: Week 20 - Production Release
+
+================================================================================
+                        ডকুমেন্ট মেটাডেটা (DOCUMENT METADATA)
+================================================================================
+
+ডকুমেন্ট পরিসংখ্যান: 
+─────────────────────
+- মোট লাইন: ~1020+ lines
+- মোট শব্দ: ~8000+ words
+- মোট অক্ষর: ~65000+ characters
+- প্রধান সেকশন: 14
+- সাব-সেকশন: 65+
+- টেবিল/চার্ট: 10+
+- কোড উদাহরণ: 30+
+- ডায়াগ্রাম: 5+
+
+ভাষা বন্টন: 
+───────────
+- বাংলা: 70%
+- ইংরেজি (টেকনিক্যাল টার্ম): 30%
+
+ডকুমেন্ট জটিলতা:
+────────────────
+- স্তর:  Advanced/Professional
+- লক্ষ্য পাঠক:  Developers, System Architects, Project Managers
+- প্রযুক্তিগত গভীরতা: Deep technical implementation details
+
+সবচেয়ে বিস্তৃত সেকশন:
+──────────────────────
+1. Section 8:  Automation Workflow (270+ lines)
+2. Section 7: Implementation Plan (200+ lines)
+3. Section 5: System Architecture (165+ lines)
+
+অসম্পূর্ণ সেকশন:
+────────────────
+- Section 12: Future Roadmap
+- Section 13: Resource Requirements
+- Section 14: Success Metrics
+
+================================================================================
+                              সমাপ্তি নোট
+================================================================================
+
+এই ইনডেক্স ফাইলটি PBA Technical Blueprint ডকুমেন্টের একটি সম্পূর্ণ রোডম্যাপ 
+প্রদান করে। ব্যবহারকারীরা দ্রুত যেকোনো নির্দিষ্ট বিভাগ, উপ-বিভাগ, বা কীওয়ার্ড 
+খুঁজে পেতে এই ইনডেক্স ব্যবহার করতে পারবেন।
+
+সুপারিশ: 
+- মূল ডকুমেন্টের সাথে এই ইনডেক্স ফাইল সংরক্ষণ করুন
+- প্রতিটি ডকুমেন্ট আপডেটের সাথে এই ইনডেক্স আপডেট করুন
+- নতুন সেকশন যোগ হলে ইনডেক্সে অন্তর্ভুক্ত করুন
+
+================================================================================
+                          End of Index Document
+================================================================================
+
+প্রস্তুতকারী: PBA Documentation Team
+সর্বশেষ হালনাগাদ: ২০২৬-০১-০৯
+ইনডেক্স ভার্সন: 1.0
+সংশ্লিষ্ট ডকুমেন্ট: PBA_Technical_Blueprint. md
+
+© 2026 PBA Project - All Rights Reserved
+================================================================================
